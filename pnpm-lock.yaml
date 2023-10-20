@@ -11,9 +11,6 @@ dependencies:
   d3:
     specifier: ^7.8.5
     version: 7.8.5
-  world-atlas:
-    specifier: ^2.0.2
-    version: 2.0.2
 
 devDependencies:
   '@sveltejs/adapter-auto':
@@ -2389,10 +2386,6 @@ packages:
     dependencies:
       isexe: 2.0.0
     dev: true
-
-  /world-atlas@2.0.2:
-    resolution: {integrity: sha512-IXfV0qwlKXpckz1FhwXVwKRjiIhOnWttOskm5CtxMsjgE/MXAYRHWJqgXOpM8IkcPBoXnyTU5lFHcYa5ChG0LQ==}
-    dev: false
 
   /wrappy@1.0.2:
     resolution: {integrity: sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==}
