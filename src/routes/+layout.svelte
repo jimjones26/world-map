@@ -4,5 +4,5 @@
 	export let data: LayoutData;
 </script>
 
-<div>{JSON.stringify(data)}</div>
+<div>{JSON.stringify(data.data)}</div>
 <slot />
