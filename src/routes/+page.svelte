@@ -1,9 +1,10 @@
 <script lang="ts">
+	import Marks from '$lib/components/Marks.svelte';
 	import { getContext } from 'svelte';
 	import type { Writable } from 'svelte/store';
 
 	// grab map data from the data store
-	const chartData: Writable<Array<any>> = getContext('parsedData');
+	const mapData: Writable<Array<any>> = getContext('parsedData');
 
 	// width, height and margins for svg container
 	const width: number = 960;
@@ -12,5 +13,5 @@
 </script>
 
 <svg {width} {height}>
-	<g transform={`translate(${margin.left}, ${margin.top})`} />
+	<Marks data={$mapData} />
 </svg>
