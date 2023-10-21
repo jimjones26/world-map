@@ -5,5 +5,3 @@
 	// grab map data from the data store
 	const chartData: Writable<Array<any>> = getContext('parsedData');
 </script>
-
-{JSON.stringify($chartData)}
