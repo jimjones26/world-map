@@ -6,9 +6,12 @@
 
 	export let data: LayoutData;
 
-	const geoJsonData: any = topojson.feature(data.data, data.data.objects.countries);
+	const { countries } = data.data.objects;
 
-	$: dataStore.set(geoJsonData);
+	$: dataStore.set({
+		countries: topojson.feature(data.data, countries),
+		interiors: topojson.mesh(data.data, countries, (a, b) => a !== b)
+	});
 
 	setContext('parsedData', dataStore);
 </script>
