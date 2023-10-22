@@ -6,11 +6,12 @@
 
 	export let data: LayoutData;
 
-	const { countries } = data.data.objects;
+	const { countries, land } = data.data.objects;
 
 	$: dataStore.set({
 		countries: topojson.feature(data.data, countries),
-		interiors: topojson.mesh(data.data, countries, (a, b) => a !== b)
+		interiors: topojson.mesh(data.data, countries, (a, b) => a !== b),
+		land: topojson.feature(data.data, land)
 	});
 
 	setContext('parsedData', dataStore);
