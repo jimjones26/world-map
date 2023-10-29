@@ -1,20 +1,28 @@
 <script lang="ts">
-	import { dataStore } from '$lib/stores/map-data-store';
+	import type { LayoutData } from './$types';
 	import { setContext } from 'svelte';
 	import * as topojson from 'topojson-client';
-	import type { LayoutData } from './$types';
+	import * as d3 from 'd3';
+
+	import { worldDataStore } from '$lib/stores/world-data';
+	import { citiesDataStore } from '$lib/stores/cities-data';
 
 	export let data: LayoutData;
 
-	const { countries, land } = data.data.objects;
+	const { countries, land } = data.worldData.objects;
+	const cities = data.citiesData;
 
-	$: dataStore.set({
-		countries: topojson.feature(data.data, countries),
-		interiors: topojson.mesh(data.data, countries, (a, b) => a !== b),
-		land: topojson.feature(data.data, land)
+	$: worldDataStore.set({
+		countries: topojson.feature(data.worldData, countries),
+		interiors: topojson.mesh(data.worldData, countries, (a, b) => a !== b),
+		land: topojson.feature(data.worldData, land)
+	});
+	$: citiesDataStore.set({
+		cities: d3.csvParse(cities, d3.autoType)
 	});
 
-	setContext('parsedData', dataStore);
+	setContext('worldData', worldDataStore);
+	setContext('citiesData', citiesDataStore);
 </script>
 
 <slot />

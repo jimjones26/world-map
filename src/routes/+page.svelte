@@ -2,8 +2,11 @@
 	import Marks from '$lib/components/Marks.svelte';
 	import { getContext } from 'svelte';
 
-	// grab map data from the data store
-	const data: any = getContext('parsedData');
+	// grab map data from the world data store
+	const worldData: any = getContext('worldData');
+
+	// grab cities data from the cities data store
+	const citiesData: any = getContext('citiesData');
 
 	// width, height and margins for svg container
 	const width: number = 960;
@@ -11,5 +14,5 @@
 </script>
 
 <svg {width} {height}>
-	<Marks data={$data} />
+	<Marks worldData={$worldData} citiesData={$citiesData} />
 </svg>
