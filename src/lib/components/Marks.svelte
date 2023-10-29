@@ -22,6 +22,6 @@
 	{/each}
 	<path d={path(worldData.interiors)} fill="none" stroke="white" />
 	{#each citiesData.cities as city}
-		<circle cx={getLngLat(city)?.[0]} cy={getLngLat(city)?.[1]} r="1" />
+		<circle cx={getLngLat(city)?.[0]} cy={getLngLat(city)?.[1]} r="1" opacity={0.3} />
 	{/each}
 </g>
