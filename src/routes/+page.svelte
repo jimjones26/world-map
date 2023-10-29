@@ -16,5 +16,5 @@
 </script>
 
 <svg {width} {height}>
-	<Marks data={$worldData} />
+	<Marks worldData={$worldData} />
 </svg>
