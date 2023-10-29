@@ -3,7 +3,7 @@
 	import { getContext } from 'svelte';
 
 	// grab map data from the data store
-	const data: any = getContext('parsedData');
+	const data: any = getContext('worldData');
 
 	// width, height and margins for svg container
 	const width: number = 960;

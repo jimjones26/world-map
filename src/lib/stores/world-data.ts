@@ -1,6 +1,6 @@
 import { writable } from 'svelte/store';
 
-const _dataStore = () => {
+const _worldDataStore = () => {
   const { set, update, subscribe } = writable({
     countries: [],
     interiors: []
@@ -16,4 +16,4 @@ const _dataStore = () => {
   }
 }
 
-export const dataStore = _dataStore();
+export const worldDataStore = _worldDataStore();

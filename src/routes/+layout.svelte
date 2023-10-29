@@ -1,20 +1,20 @@
 <script lang="ts">
-	import { dataStore } from '$lib/stores/map-data-store';
+	import { worldDataStore } from '$lib/stores/world-data';
 	import { setContext } from 'svelte';
 	import * as topojson from 'topojson-client';
 	import type { LayoutData } from './$types';
 
 	export let data: LayoutData;
 
-	const { countries, land } = data.data.objects;
+	const { countries, land } = data.worldData.objects;
 
-	$: dataStore.set({
-		countries: topojson.feature(data.data, countries),
-		interiors: topojson.mesh(data.data, countries, (a, b) => a !== b),
-		land: topojson.feature(data.data, land)
+	$: worldDataStore.set({
+		countries: topojson.feature(data.worldData, countries),
+		interiors: topojson.mesh(data.worldData, countries, (a, b) => a !== b),
+		land: topojson.feature(data.worldData, land)
 	});
 
-	setContext('parsedData', dataStore);
+	setContext('worldData', worldDataStore);
 </script>
 
 <slot />
