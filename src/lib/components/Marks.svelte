@@ -2,6 +2,8 @@
 	import * as d3 from 'd3';
 	export let worldData: any;
 	export let citiesData: any;
+	export let sizeScale: any;
+	export let sizeValue: any;
 
 	const projection = d3.geoNaturalEarth1();
 	const path = d3.geoPath(projection);
@@ -22,6 +24,11 @@
 	{/each}
 	<path d={path(worldData.interiors)} fill="none" stroke="white" />
 	{#each citiesData.cities as city}
-		<circle cx={getLngLat(city)?.[0]} cy={getLngLat(city)?.[1]} r="1" opacity={0.3} />
+		<circle
+			cx={getLngLat(city)?.[0]}
+			cy={getLngLat(city)?.[1]}
+			r={sizeScale(sizeValue(city))}
+			opacity={0.3}
+		/>
 	{/each}
 </g>
