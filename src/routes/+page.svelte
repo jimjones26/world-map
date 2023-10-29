@@ -11,10 +11,8 @@
 	// width, height and margins for svg container
 	const width: number = 960;
 	const height: number = 500;
-
-	console.log('CITIES: ', $citiesData);
 </script>
 
 <svg {width} {height}>
-	<Marks worldData={$worldData} />
+	<Marks worldData={$worldData} citiesData={$citiesData} />
 </svg>
